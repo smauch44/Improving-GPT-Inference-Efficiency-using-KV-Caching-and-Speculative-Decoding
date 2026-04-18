@@ -40,25 +40,52 @@ python main.py
 ## File Structure
 
 ```
-├── main.py             ← Entry point (run this)
-├── gpt_model.py        ← GPT architecture with KV-Cache support
-├── inference.py        ← Baseline / KV-Cache / Speculative generation
-├── benchmark.py        ← Latency, speedup, equivalence experiments + plots
-├── train.py            ← Training loop for main and draft models
-├── data_utils.py       ← Tiny Shakespeare download & character tokeniser
-│
-├── checkpoints/        ← Saved model weights (created after training)
-│   ├── main_model.pt
-│   └── draft_model.pt
-│
-└── results/            ← All outputs (created after benchmarking)
-    ├── latency_vs_tokens.png
-    ├── speedup_vs_tokens.png
-    ├── complexity_loglog.png
-    ├── throughput_vs_tokens.png
-    ├── speculation_analysis.png
-    ├── equivalence_summary.png
-    └── benchmark_report.txt
+── benchmark.py
+├── checkpoints
+│   ├── draft_model.pt
+│   └── main_model.pt
+├── data
+│   └── shakespeare.txt
+├── data_utils.py
+├── gpt_model.py
+├── inference.py
+├── installation.txt
+├── main.py
+├── plots.py
+├── README.md
+├── results
+│   ├── benchmark_data.json
+│   ├── benchmark_report.txt
+│   ├── complexity_loglog.png
+│   ├── equivalence_summary.png
+│   ├── fig1_latency.pdf
+│   ├── fig1_latency.png
+│   ├── fig1_latency.tex
+│   ├── fig2_speedup.pdf
+│   ├── fig2_speedup.png
+│   ├── fig2_speedup.tex
+│   ├── fig3_complexity.pdf
+│   ├── fig3_complexity.png
+│   ├── fig3_complexity.tex
+│   ├── fig4_throughput.pdf
+│   ├── fig4_throughput.png
+│   ├── fig4_throughput.tex
+│   ├── fig5_speculation.pdf
+│   ├── fig5_speculation.png
+│   ├── fig5_speculation.tex
+│   ├── fig6_equivalence.pdf
+│   ├── fig6_equivalence.png
+│   ├── fig6_equivalence.tex
+│   ├── fig7_kv_memory.pdf
+│   ├── fig7_kv_memory.png
+│   ├── fig7_kv_memory.tex
+│   ├── latency_vs_tokens.png
+│   ├── latex_figures.tex
+│   ├── speculation_analysis.png
+│   ├── speedup_vs_tokens.png
+│   └── throughput_vs_tokens.png
+├── run.sh
+└── train.py
 ```
 
 ---
