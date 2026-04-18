@@ -1,0 +1,54 @@
+\documentclass[border=2pt]{standalone}
+\usepackage{pgfplots}
+\usepackage{pgfplotstable}
+\pgfplotsset{compat=1.18}
+\usepackage{xcolor}
+\definecolor{amber}{HTML}{E69F00}
+\definecolor{teal}{HTML}{009E73}
+\definecolor{blue}{HTML}{0072B2}
+\definecolor{mauve}{HTML}{CC79A7}
+\definecolor{grey}{HTML}{999999}
+\definecolor{vermilion}{HTML}{D55E00}
+\usepackage{times}
+
+\begin{document}
+
+\begin{tikzpicture}
+\begin{axis}[
+  width=14cm, height=5.5cm,
+  ybar=2pt, bar width=12pt,
+  xlabel={Output tokens},
+  ylabel={Throughput (tok/s)},
+  title={Inference Throughput by Method},
+  xtick=data,
+  legend style={at={(0.01,0.99)},anchor=north west,font=\small},
+  grid=major, grid style={gray!30},
+  enlarge x limits=0.15,
+]
+\addplot[fill=amber,   draw=amber!70!black] table[x index=0, y index=1] {
+  25 282.69 301.04 233.92
+  50 292.02 302.16 225.42
+  100 293.05 303.75 185.18
+  200 261.83 303.46 176.38
+  350 373.06 396.43 305.93
+};
+\addlegendentry{Baseline}
+\addplot[fill=teal,    draw=teal!70!black]  table[x index=0, y index=2] {
+  25 282.69 301.04 233.92
+  50 292.02 302.16 225.42
+  100 293.05 303.75 185.18
+  200 261.83 303.46 176.38
+  350 373.06 396.43 305.93
+};
+\addlegendentry{KV-Cache}
+\addplot[fill=blue,    draw=blue!70!black]  table[x index=0, y index=3] {
+  25 282.69 301.04 233.92
+  50 292.02 302.16 225.42
+  100 293.05 303.75 185.18
+  200 261.83 303.46 176.38
+  350 373.06 396.43 305.93
+};
+\addlegendentry{Speculative (K=4)}
+\end{axis}
+\end{tikzpicture}
+\end{document}

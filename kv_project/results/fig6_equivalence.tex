@@ -1,0 +1,44 @@
+\documentclass[border=2pt]{standalone}
+\usepackage{pgfplots}
+\usepackage{pgfplotstable}
+\pgfplotsset{compat=1.18}
+\usepackage{xcolor}
+\definecolor{amber}{HTML}{E69F00}
+\definecolor{teal}{HTML}{009E73}
+\definecolor{blue}{HTML}{0072B2}
+\definecolor{mauve}{HTML}{CC79A7}
+\definecolor{grey}{HTML}{999999}
+\definecolor{vermilion}{HTML}{D55E00}
+\usepackage{times}
+
+\begin{document}
+
+\begin{tikzpicture}
+\begin{axis}[
+  width=10cm, height=5cm,
+  xbar,
+  xlabel={Token match (\%)},
+  ylabel={Prompt},
+  title={Output Equivalence: Baseline vs KV-Cache},
+  ytick=data,
+  yticklabels from table={data}{prompt},
+  nodes near coords,
+  grid=major, grid style={gray!30},
+  xmin=0, xmax=105,
+]
+\addplot[fill=teal!70, draw=teal!50!black] table[x=match, y expr=\coordindex] {
+  prompt match
+  P0 100
+  P1 100
+  P2 100
+  P3 100
+  P4 100
+  P5 100
+  P6 100
+  P7 100
+  P8 100
+  P9 100
+};
+\end{axis}
+\end{tikzpicture}
+\end{document}

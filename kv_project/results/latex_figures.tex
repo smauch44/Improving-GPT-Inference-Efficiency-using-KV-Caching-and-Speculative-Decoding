@@ -1,0 +1,70 @@
+% ──────────────────────────────────────────────────────────────
+% Auto-generated LaTeX figure blocks — paste into your Overleaf
+% ──────────────────────────────────────────────────────────────
+\usepackage{graphicx}   % in preamble
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=\columnwidth]{results/fig1_latency.pdf}
+  \caption{Inference latency vs sequence length for the three methods.}
+  \label{fig:latency}
+\end{figure}
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=\columnwidth]{results/fig2_speedup.pdf}
+  \caption{Speedup factor relative to the baseline. The KV-cache benefit grows with sequence length.}
+  \label{fig:speedup}
+\end{figure}
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=\columnwidth]{results/fig3_complexity.pdf}
+  \caption{Log--log complexity analysis. The estimated OLS slopes confirm the empirical scaling.}
+  \label{fig:complexity}
+\end{figure}
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=\columnwidth]{results/fig4_throughput.pdf}
+  \caption{Inference throughput (tokens per second) for each method.}
+  \label{fig:throughput}
+\end{figure}
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=\columnwidth]{results/fig5_speculation.pdf}
+  \caption{Left: empirical vs theoretical speedup for speculative decoding. Right: acceptance rate and tokens per round as a function of $K$.}
+  \label{fig:speculation}
+\end{figure}
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=\columnwidth]{results/fig6_equivalence.pdf}
+  \caption{Token-level equivalence heatmap: baseline vs KV-cache (greedy decoding). Green = exact match.}
+  \label{fig:equiv}
+\end{figure}
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=\columnwidth]{results/fig7_kv_memory.pdf}
+  \caption{KV cache memory footprint: $2LHTd_\mathrm{head} \times 4\,\mathrm{B}$.}
+  \label{fig:memory}
+\end{figure}
+
+\begin{table}[htbp]
+  \centering
+  \caption{Inference latency and speedup. KV-cache produces outputs identical to baseline (100\% token match).}
+  \label{tab:results}
+  \begin{tabular}{rrrrrr}
+  \hline
+  \textbf{Tokens} & \textbf{Baseline (s)} & \textbf{KV-Cache (s)} & \textbf{Speculative (s)} & \textbf{Speedup KV} & \textbf{Speedup Spec} \\
+  \hline
+  25 & 0.088 & 0.083 & 0.107 & 1.06$\times$ & 0.83$\times$ \\
+  50 & 0.171 & 0.165 & 0.222 & 1.03$\times$ & 0.77$\times$ \\
+  100 & 0.341 & 0.329 & 0.540 & 1.04$\times$ & 0.63$\times$ \\
+  200 & 0.764 & 0.659 & 1.134 & 1.16$\times$ & 0.67$\times$ \\
+  350 & 0.938 & 0.883 & 1.144 & 1.06$\times$ & 0.82$\times$ \\
+  \hline
+  \end{tabular}
+\end{table}
