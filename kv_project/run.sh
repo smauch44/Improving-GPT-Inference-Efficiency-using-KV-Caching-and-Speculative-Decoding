@@ -111,7 +111,7 @@ success "Tiny Shakespeare loaded."
 if [ $PLOTS_ONLY -eq 1 ]; then
   section "Plots-only mode — regenerating figures"
   [ -f results/benchmark_data.json ] || error "results/benchmark_data.json not found. Run full pipeline first."
-  "$PYTHON" plots_pro.py --data results/benchmark_data.json
+  "$PYTHON" plots.py --data results/benchmark_data.json
   success "Figures regenerated."
   exit 0
 fi
